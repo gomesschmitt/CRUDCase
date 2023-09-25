@@ -5,7 +5,7 @@ const options = {
   port: 5432,
   database: "todo",
   user: "postgres",
-  password: "wolf123456"
+  password: "??"
 }
 
 const pgPool = new Pool(options) // faz a ligação ao backend
