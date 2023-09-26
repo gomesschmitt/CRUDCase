@@ -13,9 +13,9 @@ router.get('/toDos', getAllTodosController)
 
 router.post('/toDos', createTodosController)
 
-router.patch('/toDos/:id', updateTodosController)
+router.patch('/toDo/:id', updateTodosController)
 
-router.delete('/toDos/:id', deleteTodosController)
+router.delete('/toDo/:id', deleteTodosController)
 
 
 module.exports = router;

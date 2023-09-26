@@ -10,11 +10,12 @@ class DataService {
   }
 
   create(data) {
-    return http.post("/toDo", data);
+    console.log(data);
+    return http.post("/toDos", data);
   }
 
   update(id, data) {
-    return http.patch(`/toDo/${id}`, data);
+    return http.patch(`/toDo/${id}`, data); // c "s" tit not avail
   }
 
   delete(id) {

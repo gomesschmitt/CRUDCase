@@ -83,6 +83,7 @@ export default {
         { text: "Status", value: "completed", sortable: false },
         { text: "Title", align: "start", value: "title", sortable: false },
         { text: "Actions", value: "actions", sortable: false }
+        
       ],
     };
   },
@@ -152,15 +153,27 @@ export default {
         });
     },
 
+
     getDisplaytodo(todo) {
-      return {
-        id: todo.id,
-        title: todo.title.length > 30 ? todo.title.substr(0, 10) + "..." : todo.title,
-        priority: todo.priority,
-        completed: todo.completed,
-        createdat: (todo.createdat || "09/25/2025").slice(0,10), // TODO atualizar a data para a data que foi feita a criação
-      };
-    },
+  if (todo.title) {
+    return {
+      id: todo.id,
+      title: todo.title.length > 30 ? todo.title.substr(0, 10) + "..." : todo.title,
+      priority: todo.priority,
+      completed: todo.completed,
+      createdat: (todo.createdat || "09/25/2025").slice(0, 10),
+    };
+  } else {
+    return {
+      id: todo.id,
+      title: "No title available", // Defina um valor padrão ou uma mensagem de erro aqui
+      priority: todo.priority,
+      completed: todo.completed,
+      createdat: (todo.createdat || "09/25/2025").slice(0, 10),
+    };
+  }
+},
+
    
       redirectToCreate() {  //show difference between this.$router.push and window.location.href
       this.$router.push("/create")
